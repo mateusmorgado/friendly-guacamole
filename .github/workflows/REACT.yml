@@ -35,7 +35,29 @@ jobs:
               with:
                 name: build
                 path: my-app/build
+            # Step 6: validade build output
+            - name: Validate build output
+              run: |
+                test -f my-app/build/index.html
+                test -f my-app/build/static/js/main.*.js
+                test -f my-app/build/static/css/main.*.css
 
-    # test:
-    #     runs-on: ubuntu-latest
-    #     steps:    
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            #download build output
+            - name: Download build output
+              uses: actions/download-artifact@v4
+              with:
+                name: build
+                path: ./downloaded-build
+
+            #validate build output
+            - name: Validate build output
+            run: |
+              if [ ! -f ./downloaded-build/index.html ]; 
+              then
+                echo "index.html not found in build output!"
+                exit 1
+              fi
+              echo "Build contains index.html - validation passed."
