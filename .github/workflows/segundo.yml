@@ -13,6 +13,7 @@ jobs:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
   job1:
+      if: false  # This prevents the job from running
     # This workflow contains a single job called "build"
     # The type of runner that the job will run on
       runs-on: ubuntu-latest
