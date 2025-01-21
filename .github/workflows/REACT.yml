@@ -21,16 +21,19 @@ jobs:
 
             # Step 3: Install dependencies
             - name: Install dependencies
+              working-directory: ./my-app # Add this line
               run: npm install
+              
             # Step 4: Build project build
             - name: Build project
+              working-directory: ./my-app # Add this line
               run: npm build   
             # Step 5: Upload build results
             - name: Upload build results
               uses: actions/upload-artifact@v4
               with:
                 name: build
-                path: myapp/build
+                path: my-app/build
 
     # test:
     #     runs-on: ubuntu-latest
