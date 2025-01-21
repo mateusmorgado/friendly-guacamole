@@ -23,7 +23,7 @@ jobs:
             # Step 3: Install dependencies
             - name: Install dependencies
               working-directory: ./my-app # Add this line
-              run: npm ci
+              run: npm install
               
             # Step 4: Build project build
             - name: Build project
