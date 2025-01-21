@@ -21,7 +21,7 @@ jobs:
             echo "we are still hanging on" >> hello.txt
 
         - name: upload the file as Artifact
-          uses: actions/upload-artifact@v2
+          uses: actions/upload-artifact@v4
           with:
             name: job1-output
             path: hello.txt
