@@ -30,10 +30,6 @@ jobs:
           name: homework_pre
       - shell: bash
         run: |
-          if [ ! -f math-homework.txt ]; then
-            echo "Error: math-homework.txt not found"
-            exit 1
-          fi
           value=$(cat math-homework.txt)
           echo "$(expr $value \* 9)" > math-homework.txt
       - name: Upload math result for job 2
@@ -56,10 +52,6 @@ jobs:
       - name: Print the final result
         shell: bash
         run: |
-          if [ ! -f math-homework.txt ]; then
-            echo "Error: math-homework.txt not found"
-            exit 1
-          fi
           value=$(cat math-homework.txt)
           echo "===================="
           echo "The result is: $value"
