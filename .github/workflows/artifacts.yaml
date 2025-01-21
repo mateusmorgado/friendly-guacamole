@@ -1,0 +1,27 @@
+#github template for a worflow
+
+name: artifacts
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+    job1:
+      runs-on: ubuntu-latest
+      steps:
+        - name: show a file
+          run: |
+            echo "hello from job 1" > hello.txt
+            echo "we are still hanging on" >> hello.txt
+
+        - name: upload the file as Artifact
+          uses: actions/upload-artifact@v2
+          with:
+            name: job1-output
+            path: hello.txt
